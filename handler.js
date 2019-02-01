@@ -14,20 +14,21 @@ module.exports.rollback = (event, context) => {
 			var td = await gettaskdef(service,cluster);
 			console.log("Service task definition: ", td);
 		} catch (error) { 
-			console.log("Unable to get task definition");
+			console.log("Unable to get service's task definition");
 			return error;
 		}
 
 		try { 
 			var rbtd = await listtaskdef(task);
 			if ( td === rbtd ){
-				console.log("Already on the second last version. Nothing to do");
-				return "Already on the second last version. Nothing to do";
+				const  msg = "Already on the second last version. Nothing to do";
+				console.log(msg);
+				return msg;
 			} else {
 				console.log("On the latest version, will rollback to second last version");
 			}
 		} catch (error) {
-			console.log("Unable to list task definition");
+			console.log("Unable to list task definitions");
 			return error;
 		}
 		
@@ -41,7 +42,7 @@ module.exports.rollback = (event, context) => {
 		try {
 			console.log("Service task definition changed to: ",await gettaskdef(service,cluster));
 		} catch (error){
-			console.log("Unable to get task definition");
+			console.log("Unable to get service's new task definition");
 			return error;
 		}
 	}
