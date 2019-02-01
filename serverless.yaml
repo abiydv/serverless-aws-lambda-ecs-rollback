@@ -1,0 +1,31 @@
+service: RollbackLambda 
+
+provider:
+  name: aws
+  profile: ${opt:stage}
+  runtime: nodejs8.10
+  stage: ${opt:stage}
+  region: ${opt:region, 'us-east-1'}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - "ecs:Describe*"
+        - "ecs:List*"
+        - "ecs:UpdateService"
+      Resource: "*"
+    - Effect: "Allow"
+      Action:
+        - "iam:PassRole"
+      Resource: "arn:aws:iam::${file(./config-${self:provider.stage}.json):AID}:role/EcsTaskRole"
+
+functions:
+  rollback:
+    handler: handler.rollback
+    name: ${opt:stage}-ecs-rollback
+    description: use this lambda to rollback the ecs service to use the previous task definition version
+    timeout: 5
+    reservedConcurrency: 1
+    environment:
+      ECS_CLUSTER: ${opt:stage}-cluster
+      ECS_SERVICE: ${opt:stage}_service
+      ECS_TASK: ${opt:stage}_task
