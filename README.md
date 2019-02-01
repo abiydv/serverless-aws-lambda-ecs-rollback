@@ -21,7 +21,7 @@ Serverless framework example to deploy AWS Lambda, which can rollback a ECS depl
 
 ## How to use
 
-  **1.** Deploy the service with `--stage dev` argument to create the `dev` stack. Replace `dev` with `qa` or `prod` to launch function in other environments. <br><br>
+  **1.** Deploy the service with `--stage dev` argument to create the **dev** stack. Use **qa** or **prod** to launch function in other environments. <br><br>
   ***NOTE**: Create `config-qa.json` and `config-prod.json` with the respective AWS Account Id info.*
 
   ```
