@@ -1,11 +1,12 @@
 # Serverless: AWS Lambda to rollback AWS ECS deployment
 
-Serverless framework example to deploy AWS Lambda, which can rollback a ECS deployment to the second last 'active' task definition version. Lambda runtime used - nodejs 8.x
+![servrless](https://github.com/abiydv/ref-docs/blob/master/images/logos/serverless_small.png)
+![js](https://github.com/abiydv/ref-docs/blob/master/images/logos/javascript_small.png)
+![cli](https://github.com/abiydv/ref-docs/blob/master/images/logos/aws-cli_small.png)
+![aws-lambda](https://github.com/abiydv/ref-docs/blob/master/images/logos/aws-lambda_small.png)
+![aws-ecs](https://github.com/abiydv/ref-docs/blob/master/images/logos/aws-ecs-fargate_small.png)  
 
-![servrless](https://github.com/abiydv/ref-docs/blob/master/images/logos/serverless.png)
-![js](https://github.com/abiydv/ref-docs/blob/master/images/logos/javascript.png)
-![aws-lambda](https://github.com/abiydv/ref-docs/blob/master/images/logos/aws-lambda.png)
-![aws-ecs](https://github.com/abiydv/ref-docs/blob/master/images/logos/aws-ecs-fargate.png)  
+Serverless framework example to deploy AWS Lambda, which can rollback a ECS deployment to the second last 'active' task definition version. Lambda runtime used - nodejs 8.x
 
 ## Prerequisites
    **1.** Install serverless. Follow this [guide](https://serverless.com/framework/docs/providers/aws/guide/installation/)
